@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+## vue-cli
+
+* vue init vuetifyjs/pwa csuf-nsslha-survey
+
 ## Build Setup
 
 ```bash
@@ -19,4 +23,5 @@ yarn run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
 # csuf-nsslha-survey
