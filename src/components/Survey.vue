@@ -12,7 +12,8 @@
             <span class="title"></span>
             <div id="app">
               <v-form v-model="valid" ref="form" lazy-validation>
-                <v-select label="Are you interested in attending the Annual CSHA Convention?" v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" required></v-select>
+                <v-select label="Are you interested in attending the Annual CSHA Convention?"
+                v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" required></v-select>
                 <v-text-field label="Name" v-model="name" :rules="nameRules" :counter="10" required></v-text-field>
                 <v-text-field label="E-mail" v-model="email" :rules="emailRules" required></v-text-field>
                 <v-text-field label="Phone" v-model="phone" :rules="phoneRules" required></v-text-field>
