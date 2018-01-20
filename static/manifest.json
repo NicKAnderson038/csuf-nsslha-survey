@@ -1,6 +1,6 @@
 {
-  "name": "csuf-nsslha-survey",
-  "short_name": "csuf-nsslha-survey",
+  "name": "csuf nsslha survey",
+  "short_name": "Nsslha Survey",
   "icons": [
     {
       "src": "img/icons/android-chrome-192x192.png",

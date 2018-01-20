@@ -1,6 +1,5 @@
 <template>
-
-<v-app id="inspire">
+<!-- <v-app id="inspire"> -->
     <v-container fluid>
       <v-layout row wrap>
         <v-flex xs12 md6 offset-md3>
@@ -10,9 +9,7 @@
             </v-toolbar>
             <v-card-text>
               <span class="title">Enter Information Below</span>
-
    <div id="app">
-  <v-app id="inspire">
     <v-form v-model="valid" ref="form" lazy-validation>
       <v-text-field
         label="Name"
@@ -48,7 +45,6 @@
         :rules="[v => !!v || 'Item is required']"
         required
       ></v-select>
-
       <v-btn
         @click="submit"
         :disabled="!valid"
@@ -57,16 +53,26 @@
       </v-btn>
       <v-btn @click="clear">clear</v-btn>
     </v-form>
-  </v-app>
 </div>
-
 </v-card-text>
           </v-card>
         </v-flex>
       </v-layout>
+      <!-- Quote -->
+       <v-layout style="margin-top:10px;">
+           <v-flex xs12 sm6 offset-sm3>
+              <v-card>
+                <v-card-title primary-title>
+                  <div>
+                    <h3 class="headline mb-0">CSHA Information</h3>
+                    <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                  </div>
+                </v-card-title>
+              </v-card>
+           </v-flex>
+      </v-layout>
     </v-container>
-  </v-app>
-
+  <!-- </v-app> -->
 </template>
 
 <script>
