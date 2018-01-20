@@ -5,12 +5,19 @@
         <v-flex xs12 md6 offset-md3>
           <v-card>
             <v-toolbar color="indigo" dark>
-              <v-toolbar-title>CSHA Convention Interest Survey</v-toolbar-title>
+              <v-toolbar-title>CSHA Convention Survey</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-              <span class="title">Enter Information Below</span>
+              <span class="title"></span>
    <div id="app">
     <v-form v-model="valid" ref="form" lazy-validation>
+      <v-select
+        label="Are you interested in attending the Annual CSHA Convention?"
+        v-model="select"
+        :items="items"
+        :rules="[v => !!v || 'Item is required']"
+        required
+      ></v-select>
       <v-text-field
         label="Name"
         v-model="name"
@@ -31,20 +38,13 @@
         required
       ></v-text-field>
       <v-checkbox
-        label="Are you a member of NSSLHA?"
+        label="Member of CSUF NSSLHA?"
         v-model="checkboxNsslha"
       ></v-checkbox>
       <v-checkbox
-        label="Are you a member of CSHA?"
+        label="Member of CSHA?"
         v-model="checkboxCsha"
       ></v-checkbox>
-      <v-select
-        label="How long are you planning on attending the CSHA Annual Convention?"
-        v-model="select"
-        :items="items"
-        :rules="[v => !!v || 'Item is required']"
-        required
-      ></v-select>
       <v-btn
         @click="submit"
         :disabled="!valid"
@@ -64,8 +64,8 @@
               <v-card>
                 <v-card-title primary-title>
                   <div>
-                    <h3 class="headline mb-0">CSHA Information</h3>
-                    <div>Located two hours south of Sydney in the <br>Southern Highlands of New South Wales, ...</div>
+                    <h3 class="headline mb-0">CSHA 2018 Annual Convention & Exhibition</h3>
+                    <div>March 22-25, 2018 | Sacramento Convention Center<br>For more information, click <a href="http://www.csha.org/Education/Annual-Convention" target="_blank">here</a>.</div>
                   </div>
                 </v-card-title>
               </v-card>
@@ -93,7 +93,7 @@ export default {
           "E-mail must be valid"
       ],
       phone: "",
-      phoneRules: [v => !!v || "Phone is required"],
+      phoneRules: [v => !!v || "Phone number is required"],
       checkboxNsslha: false,
       checkboxCsha: false,
       select: null,
@@ -101,7 +101,7 @@ export default {
         "Full Registration (4 Days)",
         "2 Day Registration",
         "1 Day Registration",
-        "Not attending."
+        "Not attending"
       ]
     };
   },
