@@ -78,9 +78,9 @@ export default {
     }
   },
   computed: {
-    alertRestore() {
+    alertRedirect() {
       return setTimeout(() => {
-        return (this.alert = false);
+        return this.$router.push("completed");
       }, 3000);
     }
   },
@@ -116,7 +116,7 @@ export default {
           const data = await response.json();
           console.log("It worked! ", data);
           this.alert = true;
-          this.alertRestore;
+          this.alertRedirect;
           return;
         } catch (error) {
           throw new Error(err);
