@@ -10,10 +10,12 @@
           </v-toolbar>
           <v-card-text>
             <span class="title"></span>
+            <v-alert color="success" icon="check_circle" :value="alert" transition="scale-transition">
+              Upload Successful!.
+            </v-alert>
             <div id="app">
               <v-form v-model="valid" ref="form" lazy-validation>
-                <v-select label="Are you interested in attending the Annual CSHA Convention?"
-                v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" required></v-select>
+                <v-select label="Are you interested in attending the Annual CSHA Convention?" v-model="select" :items="items" :rules="[v => !!v || 'Item is required']" required></v-select>
                 <v-text-field label="Name" v-model="name" :rules="nameRules" :counter="10" required></v-text-field>
                 <v-text-field label="E-mail" v-model="email" :rules="emailRules" required></v-text-field>
                 <v-text-field label="Phone" v-model="phone" :rules="phoneRules" required></v-text-field>
@@ -37,10 +39,10 @@
 <script>
 import QrCode from "./Qrcode";
 import CshaInfo from "./CshaInfo";
-
 export default {
   data() {
     return {
+      alert: false,
       valid: true,
       name: "",
       nameRules: [
@@ -70,8 +72,16 @@ export default {
   created() {
     try {
       // this.fetch();
+      this.alerter;
     } catch (error) {
       console.error(error);
+    }
+  },
+  computed: {
+    alertRestore() {
+      return setTimeout(() => {
+        return (this.alert = false);
+      }, 3000);
     }
   },
   components: {
@@ -105,6 +115,8 @@ export default {
           );
           const data = await response.json();
           console.log("It worked! ", data);
+          this.alert = true;
+          this.alertRestore;
           return;
         } catch (error) {
           throw new Error(err);
